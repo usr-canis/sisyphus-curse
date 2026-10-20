@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SISYPHUS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="stage">
+    <canvas id="game"></canvas>
+
+    <div id="hud">
+      <div><span class="lbl">ATTEMPT</span> <span id="hud-attempt">0</span></div>
+      <div><span class="lbl">ALTITUDE</span> <span id="hud-alt">0</span> m</div>
+      <div><span class="lbl">BEST</span> <span id="hud-best">0</span> m</div>
+      <div><span class="lbl">CLIMBED</span> <span id="hud-total">0</span> m</div>
+    </div>
+
+    <div id="hint">SCROLL &#9650; TO PUSH</div>
+
+    <div id="message">
+      <h1 id="msg-title">SO CLOSE.</h1>
+      <p id="msg-sub"></p>
+    </div>
+
+    <div id="title">
+      <h1>SISYPHUS</h1>
+      <p>THE SUMMIT AWAITS AT <span id="title-summit">0</span> m.</p>
+      <p>SCROLL UP TO PUSH THE BOULDER.</p>
+      <p class="small">(OR HOLD &#8593; / W / SPACE &mdash; SWIPE UP ON TOUCH)</p>
+      <button id="start" type="button">BEGIN</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

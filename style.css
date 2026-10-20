@@ -1,0 +1,130 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #07060b;
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: none;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  color: #f1e9dc;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+#stage {
+  --k: 3;
+  position: relative;
+  width: 960px;
+  height: 540px;
+}
+
+#game {
+  width: 100%;
+  height: 100%;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+#hud {
+  position: absolute;
+  top: calc(var(--k) * 4px);
+  left: calc(var(--k) * 5px);
+  font-size: calc(var(--k) * 5px);
+  line-height: 1.35;
+  letter-spacing: 0.08em;
+  text-shadow: calc(var(--k) * 0.5px) calc(var(--k) * 0.5px) 0 #000;
+  pointer-events: none;
+}
+#hud .lbl { color: #b8a58c; display: inline-block; min-width: 8.5em; }
+
+#hint {
+  position: absolute;
+  left: 0; right: 0;
+  bottom: calc(var(--k) * 10px);
+  text-align: center;
+  font-size: calc(var(--k) * 6px);
+  letter-spacing: 0.2em;
+  color: #ffe3a3;
+  text-shadow: calc(var(--k) * 0.6px) calc(var(--k) * 0.6px) 0 #000;
+  opacity: 0;
+  transition: opacity 0.8s;
+  pointer-events: none;
+  animation: pulse 1.4s steps(2) infinite;
+}
+#hint.show { opacity: 1; }
+
+@keyframes pulse { 50% { color: #fff; } }
+
+#message {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s steps(3);
+}
+#message.show { opacity: 1; }
+#message h1 {
+  font-size: calc(var(--k) * 22px);
+  letter-spacing: 0.25em;
+  color: #fff;
+  text-shadow:
+    calc(var(--k) * 1px) calc(var(--k) * 1px) 0 #8a1010,
+    calc(var(--k) * 2px) calc(var(--k) * 2px) 0 #000;
+}
+#message p {
+  margin-top: calc(var(--k) * 4px);
+  font-size: calc(var(--k) * 5px);
+  letter-spacing: 0.2em;
+  color: #d8c4a8;
+  text-shadow: calc(var(--k) * 0.6px) calc(var(--k) * 0.6px) 0 #000;
+}
+
+#title {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--k) * 3px);
+  background: rgba(7, 6, 11, 0.78);
+  text-align: center;
+  font-size: calc(var(--k) * 5px);
+  letter-spacing: 0.15em;
+}
+#title.hidden { display: none; }
+#title h1 {
+  font-size: calc(var(--k) * 24px);
+  letter-spacing: 0.3em;
+  color: #ffe3a3;
+  text-shadow: calc(var(--k) * 1.5px) calc(var(--k) * 1.5px) 0 #8a1010;
+  margin-bottom: calc(var(--k) * 4px);
+}
+#title .small { font-size: calc(var(--k) * 3.5px); color: #9d8e7a; }
+#title button {
+  margin-top: calc(var(--k) * 6px);
+  font: inherit;
+  font-size: calc(var(--k) * 6px);
+  letter-spacing: 0.3em;
+  padding: calc(var(--k) * 2px) calc(var(--k) * 8px);
+  color: #07060b;
+  background: #ffe3a3;
+  border: calc(var(--k) * 1px) solid #fff;
+  box-shadow: calc(var(--k) * 1.5px) calc(var(--k) * 1.5px) 0 #8a1010;
+  cursor: pointer;
+}
+#title button:hover, #title button:focus-visible { background: #fff; outline: none; }
